@@ -8,18 +8,24 @@ interface todoArr {
 }
 
 export const ListItem: React.FunctionComponent<todoArr> = ({ todo, remove, toggle }) => {
+
+    if (todo.length === 0) {
+        return (
+            <h1 className='title__null'>Задач нет...</h1>
+        )
+    }
     
     return(
         <div className="list-item">
             <ul className="list-item__list">
-                {
+                { 
                     todo.map(item => {
                         const classes=['list-item__items']
                         if (item.completed) {
                             classes.push('completed')
                         }
                         return (
-                            <li className={classes.join(' ')}>
+                            <li className={classes.join(' ')} key={item.id}>
                                 <input 
                                     type="checkbox" 
                                     className='list-item__input' 

@@ -104,10 +104,17 @@ main {
 
 /*-----------ListItem--------------*/
 
+.title__null {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0;
+  color:rgb(143, 142, 142);
+}
+
 .list-item {
   display: flex;
   flex-direction: column;
-  padding: 3rem 0 0 0;
+  padding: 3rem 0;
 }
 
 .list-item__list > *:not(:last-child) {
@@ -117,10 +124,12 @@ main {
 .list-item__items {
   width: 100%;
   border: 2px solid rgb(190, 190, 190);
-  padding: 0.5rem 1rem;
+  padding: 0 0.7rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-radius: 0.5rem;
+  min-height: 2.2rem;
 }
 
 .list-item__items.completed .list-item__title {
@@ -137,7 +146,6 @@ main {
   width: 20px;
   height: 20px;
   position: relative;
-  
 }
 
 .list-item__close::after,
@@ -159,7 +167,44 @@ main {
 }
 
 
+/*--------------About-------------*/
 
+.about {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;;
+  flex-direction: column;
+  padding: 3rem 0;
+}
+
+.about > *:not(:last-child) {
+  margin: 0 0 1rem 0;
+}
+
+.about__title {
+  color:rgb(143, 142, 142)
+}
+
+.about__btn {
+  max-width: 100px;
+  background-color:rgb(232, 127, 127);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.7rem;
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+
+.about__btn:hover {
+  border: 2px solid rgb(232, 127, 127);
+  background-color: #fff;
+  color:rgb(252, 76, 76);
+  transition: 0.3s linear;
+}
 
 
 

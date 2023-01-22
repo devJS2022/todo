@@ -1,4 +1,4 @@
-import React, { useState, useRef} from 'react';
+import React, { useState, useEffect} from 'react';
 import { Form } from '../components/Form';
 import { ListItem } from '../components/ListItem';
 
@@ -11,6 +11,18 @@ export interface Itodo {
 
 export const TodoPage: React.FunctionComponent = () => {
     const [todo, setTodo] = useState<Itodo[]>([])
+
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem('todo') || '[]') as Itodo[]
+
+        setTodo(data)
+    },[])
+
+    useEffect(() => {
+        if(todo.length > 0) {
+            localStorage.setItem('todo', JSON.stringify(todo))
+        }
+    }, [todo])
    
     const addElement = (title: string) => {
         const newItem = {
