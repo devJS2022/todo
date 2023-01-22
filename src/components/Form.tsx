@@ -14,6 +14,13 @@ export const Form: React.FunctionComponent<Todos> = ({addElement}) => {
         }
     }
     return (
-        <input type="text" id='title' className="form__input" placeholder="Введите задачу" ref={refValue} onKeyDown={enterElement}/>
+        <input 
+            type="text" 
+            id='title' 
+            className="form__input" 
+            placeholder="Введите задачу" 
+            ref={refValue} 
+            onKeyDown={enterElement}
+        />
     )
 }

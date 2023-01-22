@@ -22,13 +22,31 @@ export const TodoPage: React.FunctionComponent = () => {
         setTodo(prev => [newItem, ...prev])
     }
 
+    const removeTodo= (id:number) => {
+        setTodo(prev => prev.filter(item => item.id !== id))
+    }
 
+    const toggleTodo = (id:number) => {
+        setTodo(prev => prev.map(item => {
+            if (item.id === id) {
+                return {
+                    ...item,
+                    completed: !item.completed
+                }
+            }
+            return item
+        }))
+    }
 
    
     return (
         <div className="todos _container">
             <Form  addElement={addElement}/>
-            <ListItem todo={todo}/>
+            <ListItem 
+                todo={todo} 
+                remove={removeTodo}
+                toggle={toggleTodo}
+            />
         </div>
     )
 }
